@@ -3,7 +3,7 @@ import {
     Route,
     Routes
 } from "react-router-dom"
-import Navbar from './components/layouts/Navbar'
+import Navbar from './components/layouts/navbar/Navbar'
 function AppRoutes() {
   const container = useRef<HTMLSpanElement | null>(null)
   const text = useRef<HTMLParagraphElement | null>(null)

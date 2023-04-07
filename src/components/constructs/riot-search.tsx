@@ -28,7 +28,7 @@ const RiotSearch = () => {
         items-center
         ${show ? "max-w-screen-sm" : "max-w-0"}
         transition-all
-        duration-500
+        duration-700
         overflow-hidden
         `}>
             <input
