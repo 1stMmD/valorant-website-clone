@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: DINNext;
+  src: url("/src/assets/fonts/DINNext-Regular.woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: DINNext;
+  src: url("/src/assets/fonts/DINNext-Medium.woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: DINNext;
+  src: url("/src/assets/fonts/DINNext-Bold.woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Tungsten;
+  src: url("/src/assets/fonts/Tungsten-Bold.woff2");
+}
+
+@layer components {
+  .bg-primary
+  {
+    @apply bg-slate-100 
+  }
+
+  .bg-secondary
+  {
+    @apply bg-blue-500
+  }
+
+  .text-primary
+  {
+    @apply text-neutral-800
+  }
+
+  .text-secondary
+  {
+    @apply text-slate-100
+  }
+  
+}
