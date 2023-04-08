@@ -4,6 +4,7 @@ import {
     Routes
 } from "react-router-dom"
 import Navbar from './components/layouts/navbar/Navbar'
+import Introduction from './components/sections/landing/introduction'
 function AppRoutes() {
   const container = useRef<HTMLSpanElement | null>(null)
   const text = useRef<HTMLParagraphElement | null>(null)
@@ -36,26 +37,26 @@ function AppRoutes() {
             <Route path="/agents" element={<span>Bye</span>}/>
         </Routes> */}
 
-        <div
-        className='
-        flex
-        items-center
-        justify-center
-        w-full
-        h-screen
-        bg-cyan-500
-        '>
-
-        </div>
+        <Introduction/>
 
         <div
         className='
         flex
+        relative
         items-center
         justify-center
         w-full
         h-screen
-        bg-red-500
+        bg-primary
+        after:content-[""]
+        after:z-2
+        after:absolute
+        after:-top-[5vw]
+        after:left-0
+        after:border-b-[5vw]
+        after:border-r-[5vw]
+        after:border-r-transparent
+        after:border-b-slate-100
         '>
           <span ref={container}>
             <p ref={text}>Hello</p>
