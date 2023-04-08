@@ -1,12 +1,19 @@
-import React, { useCallback, useReducer, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useReducer, useRef, useState } from 'react'
 import More, { Child, Parent } from './more'
+
+type OptionType = {
+    name :string;
+    external : boolean;
+    url : string;
+    options : OptionType[] | null
+}
 
 type OptionsActions = "Update" | "Hide"
 
 type OptionsPayload = {
     show : boolean,
     x : number,
-    value : string[] | null
+    value : OptionType[] | null
 }
 
 type OptionsAction = {
@@ -17,7 +24,7 @@ type OptionsAction = {
 type OptionsState = {
     show : boolean,
     x : number,
-    value : string[] | null
+    value : OptionType[] | null
 }
 
 const actions : {
@@ -38,32 +45,26 @@ const actions : {
 }
 
 function NavbarSections() {
-    const [sections , setSections] = useState([
-        {
-            name : "Game Info",
-            options : [
-                "Agents",
-                "Weapons",
-                "Maps"
-            ]
-        },
-        {
-            name : "Media",
-            options : [
-                "Telegram",
-                "Instagram",
-                "Discord"
-            ]
-        },
-        {
-            name : "News",
-            options : null
-        },
-        {
-            name : "Leaderboards",
-            options : null
-        }
-    ])
+
+    const [isLG, setIsLG] = useState<boolean>(false)
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(min-width: 1024px)");
+        setIsLG(mediaQuery.matches);
+
+        const handler = (e) => {
+            setIsLG(e.matches)
+        };
+
+        mediaQuery.addListener(handler);
+
+        return () => {
+            mediaQuery.removeListener(handler);
+        };
+    }, []);
+
+    const [sections , setSections] = useState<OptionType[] | []>(sec)
+    const [more , setMore] = useState<OptionType[] | []>([])
     const [options, updateOptions] = useReducer((prev : OptionsState , action : OptionsAction) => {
         const { type } = action
         return actions[type](prev , action);
@@ -77,21 +78,45 @@ function NavbarSections() {
     const timeout = useRef<undefined | number>(undefined)
 
     const observer = useRef<null | ResizeObserver>(null) 
+    const m_observer = useRef<null | MutationObserver>(null) 
 
     const cb = useCallback((node : HTMLDivElement) => {
         observer.current = new ResizeObserver((e) => {
-            const { scrollHeight , clientHeight } = e[0].target
-            if(scrollHeight > clientHeight){
+            const { scrollWidth , clientWidth } = e[0].target
+            if(scrollWidth > clientWidth){
                 setSections(prev => {
+                    if(prev.length <= 0) return prev
                     let l = [...prev]
-                    l.splice(prev.length - 1, 1) 
+                    let Item = l.splice(prev.length - 1, 1)
+                    setMore(morePrev => {
+                        if(morePrev.some((i) => i.name === Item[0].name)) return morePrev
+                        return [...morePrev,Item[0]]
+                    })
+                    return l
+                })
+            }
+        })
+
+        m_observer.current = new MutationObserver((e) => {
+            const { scrollWidth , clientWidth } = (e[0].target as any)
+            if(scrollWidth > clientWidth){
+                setSections(prev => {
+                    if(prev.length <= 0) return prev
+                    let l = [...prev]
+                    let Item = l.splice(prev.length - 1, 1)
+                    setMore(morePrev => {
+                        if(morePrev.some((i) => i.name === Item[0].name)) return morePrev
+                        return [...morePrev,Item[0]]
+                    })
                     return l
                 })
             }
         })
         
-        if(node)
-        observer.current.observe(node)
+        if(node){
+            observer.current.observe(node)
+            m_observer.current.observe(node , {childList : true})
+        }
     },[])
 
     return (
@@ -101,15 +126,15 @@ function NavbarSections() {
             className='
             flex-grow-0
             flex
-            flex-wrap
             items-center
             h-full
             w-full
+            max-w-full
             relative
             overflow-hidden
             gap-1
             '>
-                {sections.map(({name , options} , idx) => {
+                {sections?.map(({name , options} , idx) => {
                     return(
                         <span
                         className='
@@ -130,7 +155,6 @@ function NavbarSections() {
 
                                 const parent = (e.currentTarget.parentNode as Element);
                                 const {x} = parent?.getBoundingClientRect()
-                                
                                 updateOptions({
                                     type : "Update",
                                     payload : {
@@ -186,30 +210,29 @@ function NavbarSections() {
                     )
                 })}
                     
-                    <More
-                    onMouseEnter={(e) => {
-                        if(timeout.current) clearTimeout(timeout.current)
-
-                        const parent = (e.currentTarget.parentNode as Element);
-                        const {x} = parent?.getBoundingClientRect()
-                        
+                <More
+                onMouseEnter={(e) => {
+                    if(timeout.current) clearTimeout(timeout.current)
+                    const parent = (e.currentTarget.parentNode as Element);
+                    const {x} = parent?.getBoundingClientRect()
+                    console.log(more)
+                    updateOptions({
+                        type : "Update",
+                        payload : {
+                            show : true,
+                            x,
+                            value : more
+                        }
+                    })
+                }}
+                onMouseLeave={() => {
+                    timeout.current = setTimeout(() => {
                         updateOptions({
-                            type : "Update",
-                            payload : {
-                                show : true,
-                                x,
-                                value : more
-                            }
+                            type : "Hide"
                         })
-                    }}
-                    onMouseLeave={() => {
-                        timeout.current = setTimeout(() => {
-                            updateOptions({
-                                type : "Hide"
-                            })
-                        },300)
-                    }}
-                    />
+                    },300)
+                }}
+                />
                     
             </div>
 
@@ -261,14 +284,16 @@ function NavbarSections() {
                 text-[.87rem]
                 '
                 >
-                    {options.value?.map((item) => {
+                    {options.value?.map((item , idx) => {
                         if(!item.options) return(
                             <Child
+                            key={idx + item.name}
                             section={item}
                             />
                         )
                         return(
                             <Parent
+                            key={idx + item.name}
                             section={item}
                             />
                         )
@@ -281,35 +306,136 @@ function NavbarSections() {
 
 export default NavbarSections
 
-const more = [
-    {
-        name : "Game Info",
-        options : [
-            {
-                name : "Agents",
-                options : null
-            },
-            {
-                name : "Weapons",
-                options : null
-            },
-            {
-                name : "Maps",
-                options : [
-                    {
-                        name : "test",
-                        options : null
-                    },
-                    {
-                        name : "test2",
-                        options : null
-                    },
-                ]
-            }
+
+class Option{
+    name :string;
+    external : boolean;
+    url : string;
+    options : OptionType[] | null
+    constructor(name : string , external : boolean , url : string , options : OptionType[] | null ){
+        this.name = name
+        this.external = external
+        this.url = url
+        this.options = options
+    }
+}
+
+const sec = [
+    new Option(
+        "Game Info",
+        false,
+        "",
+        [
+            new Option(
+                "Agents",
+                false,
+                "agents",
+                null
+            ),
+            new Option(
+                "Weapons",
+                false,
+                "weapons",
+                null
+            ),
+            new Option(
+                "Maps",
+                false,
+                "maps",
+                null
+            )
         ]
-    },
-    {
-        name : "News",
-        options : null
-    },
+    ),
+    new Option(
+        "Media",
+        false,
+        "media",
+        null
+    ),
+    new Option(
+        "News",
+        false,
+        "news",
+        null
+    ),
+    new Option(
+        "Leaderboards",
+        false,
+        "leaderboards",
+        null
+    ),
+    new Option(
+        "Support",
+        false,
+        "",
+        [
+            new Option(
+                "Spec",
+                true,
+                "link",
+                null
+            ),
+            new Option(
+                "Support",
+                true,
+                "link",
+                null
+            ),
+            new Option(
+                "Community code",
+                true,
+                "link",
+                null
+            ),
+        ]
+    ),
+    new Option(
+        "Our Socials",
+        false,
+        "",
+        [
+            new Option(
+                "Twitter",
+                true,
+                "link",
+                null
+            ),
+            new Option(
+                "Youtube",
+                true,
+                "link",
+                null
+            ),
+            new Option(
+                "Instagram",
+                true,
+                "link",
+                null
+            ),
+            new Option(
+                "Facebook",
+                true,
+                "link",
+                null
+            ),
+            new Option(
+                "Discord",
+                true,
+                "link",
+                null
+            ),
+        ]
+    ),
+    new Option(
+        "Esports",
+        true,
+        "",
+        null,
+    ),
+    new Option(
+        "PBE Signup",
+        false,
+        "/pbe",
+        null
+    )
 ]

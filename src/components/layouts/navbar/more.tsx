@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import OptionButton from '../../primitives/navbar/option-button'
+import { TiArrowSortedDown } from "react-icons/ti"
 
 type props = {
     onMouseEnter : (e : React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
@@ -91,6 +92,16 @@ export const Parent = ({
       onClick={() => {
         setShow(prev => !prev)
       }}
+      Icon={
+      <span
+      className={`
+      text-secondary
+      text-[1rem]
+      ${show ? "" : "rotate-180"}
+      `}>
+        <TiArrowSortedDown/>
+      </span>
+      }
       name={name}
       />
 

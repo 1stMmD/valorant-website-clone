@@ -2,12 +2,14 @@ import React from 'react'
 
 type props = {
     name :  string,
-    onClick ?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+    onClick ?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
+    Icon ?: JSX.Element
 }
 
 const OptionButton = ({
     name,
-    onClick
+    onClick,
+    Icon
 } : props) => {
   return (
     <button
@@ -22,6 +24,7 @@ const OptionButton = ({
     rounded-md
     '>
         {name}
+        {Icon ? Icon : <></>}
     </button>
   )
 }

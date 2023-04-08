@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import Valorant from '../../svg/Valorant'
 import RiotGames from '../../svg/riot-games'
 import { TbWorld } from "react-icons/tb"
@@ -5,6 +6,22 @@ import RiotSearch from '../../constructs/riot-search'
 import NavbarSections from './navbar-sections'
 
 function Navbar() {
+    const [isLG, setIsLG] = useState<boolean>(false)
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(min-width: 1024px)");
+        setIsLG(mediaQuery.matches);
+
+        const handler = (e : any) => {
+            setIsLG(e.matches)
+        };
+
+        mediaQuery.addListener(handler);
+
+        return () => {
+            mediaQuery.removeListener(handler);
+        };
+    }, []);
   return (
     <nav
     className='
@@ -40,7 +57,7 @@ function Navbar() {
             '/>
         </span>
 
-        <NavbarSections/>
+        { isLG ? <NavbarSections/> : <></>}
 
         <div
         className='
