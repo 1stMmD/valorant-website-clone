@@ -4,6 +4,7 @@ import RiotGames from '../../svg/riot-games'
 import { TbWorld } from "react-icons/tb"
 import RiotSearch from '../../constructs/riot-search'
 import NavbarSections from './navbar-sections'
+import NavbarMobile from "./navbar-mobile"
 
 function Navbar() {
     const [isLG, setIsLG] = useState<boolean>(false)
@@ -22,6 +23,7 @@ function Navbar() {
             mediaQuery.removeListener(handler);
         };
     }, []);
+
   return (
     <nav
     className='
@@ -30,12 +32,14 @@ function Navbar() {
     items-center
     top-0
     left-0
-    px-9
+    px-4
+    lg:px-9
     gap-x-6
     h-[78px]
     bg-neutral-900
     border-b-[2px]
     border-neutral-800
+    z-[5]
     '>
         <span
         className='
@@ -68,7 +72,7 @@ function Navbar() {
         gap-4
         '>
 
-            <RiotSearch/>
+            { isLG && <RiotSearch/>}
 
             <button
             className='
@@ -81,6 +85,7 @@ function Navbar() {
                 <TbWorld/>
             </button>
 
+            { isLG ? 
             <button
             className='
             uppercase
@@ -94,6 +99,9 @@ function Navbar() {
             '>
                 Play now
             </button>
+            :
+            <NavbarMobile/>
+            }
             
         </div>
     </nav>

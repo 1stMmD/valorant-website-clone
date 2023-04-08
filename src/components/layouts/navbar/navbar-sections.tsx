@@ -1,13 +1,7 @@
 import React, { useCallback, useEffect, useReducer, useRef, useState } from 'react'
 import More, { Child, Parent } from './more'
-
-type OptionType = {
-    name :string;
-    external : boolean;
-    url : string;
-    options : OptionType[] | null
-}
-
+import type { OptionType } from '../../../constants/navbar'
+import { sections_array } from '../../../constants/navbar'
 type OptionsActions = "Update" | "Hide"
 
 type OptionsPayload = {
@@ -63,7 +57,7 @@ function NavbarSections() {
         };
     }, []);
 
-    const [sections , setSections] = useState<OptionType[] | []>(sec)
+    const [sections , setSections] = useState<OptionType[] | []>(sections_array)
     const [more , setMore] = useState<OptionType[] | []>([])
     const [options, updateOptions] = useReducer((prev : OptionsState , action : OptionsAction) => {
         const { type } = action
@@ -306,136 +300,3 @@ function NavbarSections() {
 
 export default NavbarSections
 
-
-class Option{
-    name :string;
-    external : boolean;
-    url : string;
-    options : OptionType[] | null
-    constructor(name : string , external : boolean , url : string , options : OptionType[] | null ){
-        this.name = name
-        this.external = external
-        this.url = url
-        this.options = options
-    }
-}
-
-const sec = [
-    new Option(
-        "Game Info",
-        false,
-        "",
-        [
-            new Option(
-                "Agents",
-                false,
-                "agents",
-                null
-            ),
-            new Option(
-                "Weapons",
-                false,
-                "weapons",
-                null
-            ),
-            new Option(
-                "Maps",
-                false,
-                "maps",
-                null
-            )
-        ]
-    ),
-    new Option(
-        "Media",
-        false,
-        "media",
-        null
-    ),
-    new Option(
-        "News",
-        false,
-        "news",
-        null
-    ),
-    new Option(
-        "Leaderboards",
-        false,
-        "leaderboards",
-        null
-    ),
-    new Option(
-        "Support",
-        false,
-        "",
-        [
-            new Option(
-                "Spec",
-                true,
-                "link",
-                null
-            ),
-            new Option(
-                "Support",
-                true,
-                "link",
-                null
-            ),
-            new Option(
-                "Community code",
-                true,
-                "link",
-                null
-            ),
-        ]
-    ),
-    new Option(
-        "Our Socials",
-        false,
-        "",
-        [
-            new Option(
-                "Twitter",
-                true,
-                "link",
-                null
-            ),
-            new Option(
-                "Youtube",
-                true,
-                "link",
-                null
-            ),
-            new Option(
-                "Instagram",
-                true,
-                "link",
-                null
-            ),
-            new Option(
-                "Facebook",
-                true,
-                "link",
-                null
-            ),
-            new Option(
-                "Discord",
-                true,
-                "link",
-                null
-            ),
-        ]
-    ),
-    new Option(
-        "Esports",
-        true,
-        "",
-        null,
-    ),
-    new Option(
-        "PBE Signup",
-        false,
-        "/pbe",
-        null
-    )
-]

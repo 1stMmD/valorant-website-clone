@@ -68,6 +68,7 @@ export default More
 
 type SectionType = {
   name: string,
+  external : boolean,
   options : SectionType[] | null
 }
 
@@ -93,40 +94,34 @@ export const Parent = ({
         setShow(prev => !prev)
       }}
       Icon={
-      <span
-      className={`
-      text-secondary
-      text-[1rem]
-      ${show ? "" : "rotate-180"}
-      `}>
-        <TiArrowSortedDown/>
-      </span>
+        <span
+        className={`
+        text-secondary
+        text-[1.5rem]
+        lg:text-[1rem]
+        ${show ? "" : "rotate-180"}
+        `}>
+          <TiArrowSortedDown/>
+        </span>
       }
       name={name}
       />
 
-      <span
-      className='
-      flex
-      flex-col
-      ml-4
-      '>
-        {
-          options && show &&
-          options.map((item ,idx) => {
-            if(!item.options) return(
-              <Child
-              section={item}
-              key={idx}/>
-            )
-            return(
-              <Parent
-              section={item}
-              />
-            )
-          })
-        }
-      </span>
+      {
+        options && show &&
+        options.map((item ,idx) => {
+          if(!item.options) return(
+            <Child
+            section={item}
+            key={idx}/>
+          )
+          return(
+            <Parent
+            section={item}
+            />
+          )
+        })
+      }
     </span>
   )
 }
@@ -134,9 +129,10 @@ export const Parent = ({
 export const Child = ({
   section
 } : {section : SectionType}) => {
-  const { name } = section
+  const { name , external } = section
   return(
     <OptionButton
+    external={external}
     name={name}
     />
   )

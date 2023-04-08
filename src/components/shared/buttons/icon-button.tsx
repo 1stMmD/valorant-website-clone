@@ -3,21 +3,24 @@ import React from 'react'
 type props = {
     children : JSX.Element,
     onClick ?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
-    
+    className ? : string
 }
 
 const IconButton = ({
     children,
-    onClick
+    onClick,
+    className
 } : props) => {
   return (
     <button
     onClick={onClick}
-    className='
+    className={`
     text-white
     text-[1.5rem]
     p-3
-    '>
+    rounded-xl
+    ${className ? className : ""}
+    `}>
         {
             children
         }
