@@ -7,6 +7,8 @@ const Introduction = () => {
     <section
     className='
     relative
+    overflow-hidden
+    
     '>
 
         <div
