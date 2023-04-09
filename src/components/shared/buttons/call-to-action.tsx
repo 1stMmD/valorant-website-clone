@@ -1,6 +1,10 @@
+type props = {
+  title : string
+}
 
-
-const CallToAction = () => {
+const CallToAction = ({
+  title
+} : props) => {
   return (
     <div
     className="
@@ -17,7 +21,8 @@ const CallToAction = () => {
         group
         overflow-hidden
         relative
-        text-[1rem]
+        text-[1.1rem]
+        lg:text-[1rem]
         text-secondary
         text-center
         w-full
@@ -31,7 +36,7 @@ const CallToAction = () => {
             relative
             z-[2]
             ">
-                Play Free
+                {title}
             </span>
 
             <span
@@ -45,6 +50,7 @@ const CallToAction = () => {
             bg-secondary
             "
             />
+
             <span
             className="
             absolute
@@ -64,8 +70,8 @@ const CallToAction = () => {
             bottom-0
             right-0
             absolute
-            w-2
-            h-2
+            w-1.5
+            h-1.5
             bg-neutral-800
             group-hover:bg-primary
             z-[2]

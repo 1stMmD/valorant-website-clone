@@ -89,7 +89,9 @@ const Introduction = () => {
                 </p>
             </div>
 
-            <CallToAction/>
+            <CallToAction
+            title="play free"
+            />
 
             <span
             className='

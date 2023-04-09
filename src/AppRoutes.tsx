@@ -6,6 +6,7 @@ import {
 import Navbar from './components/layouts/navbar/Navbar'
 import Introduction from './components/sections/landing/introduction'
 import Latest from './components/sections/landing/Latest'
+import Featured from './components/sections/landing/featured'
 
 function AppRoutes() {
   return (
@@ -20,6 +21,8 @@ function AppRoutes() {
         <Introduction/>
 
         <Latest/>
+
+        <Featured/>
 
         <div
         className='
