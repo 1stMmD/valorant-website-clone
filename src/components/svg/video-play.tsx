@@ -1,7 +1,7 @@
 import React from 'react'
 
 type props = {
-    className : string
+    className : string,
 }
 
 

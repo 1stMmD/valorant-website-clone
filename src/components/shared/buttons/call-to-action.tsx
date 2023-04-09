@@ -1,13 +1,16 @@
 type props = {
-  title : string
+  title : string,
+  light ?: boolean
 }
 
 const CallToAction = ({
-  title
+  title ,
+  light = true
 } : props) => {
   return (
     <div
     className="
+    flex-shrink-0
     max-w-[280px]
     w-[280px]
     flex
@@ -96,7 +99,8 @@ const CallToAction = ({
         </button>
 
         <span
-        className="
+        className={`
+        ${light ? "" : "border-slate-500/60"}
         pointer-events-none
         absolute
         w-full
@@ -104,11 +108,12 @@ const CallToAction = ({
         border-[1px]
         border-t-[0px]
         bottom-0
-        "
+        `}
         />
 
         <span
-        className="
+        className={`
+        ${light ? "" : "border-slate-500/60"}
         pointer-events-none
         absolute
         w-full
@@ -116,7 +121,7 @@ const CallToAction = ({
         border-[1px]
         border-b-[0px]
         top-0
-        "
+        `}
         />
     </div>
   )
