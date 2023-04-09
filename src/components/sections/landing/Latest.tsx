@@ -9,6 +9,8 @@ import { useParallax } from '../../../hooks/useParallax';
 const Latest = () => {
     const isLG = useIsLG()
 
+    const {container , element} = useParallax()
+
     return (
         <section
         className='
@@ -142,6 +144,7 @@ const Latest = () => {
             </div>
 
             <div
+            ref={container}
             className='
             z-[0]
             absolute
@@ -151,6 +154,7 @@ const Latest = () => {
             overflow-hidden
             '>
                 <div
+                ref={element}
                 className='
                 leading-none
                 uppercase
