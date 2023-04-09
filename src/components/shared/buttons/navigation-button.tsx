@@ -13,8 +13,7 @@ const NavigationButton = ({
     <a
     href={url}
     className='
-    duration-500
-    transition-all
+    group
     flex
     items-center
     justify-between
@@ -22,7 +21,6 @@ const NavigationButton = ({
     font-bold
     w-fit
     gap-x-3
-    hover:gap-x-5
     '>
         <span
         className='
@@ -34,7 +32,10 @@ const NavigationButton = ({
         </span>
         <ArrowRight
         className='
+        transition-transform
+        duration-500
         w-[22px]
+        group-hover:translate-x-[8px]
         '
         stroke='stroke-blue-500'
         />

@@ -39,6 +39,7 @@ const Latest = () => {
             z-[2]
             flex
             justify-between
+            items-center
             '>
                 <h2
                 className='
@@ -53,6 +54,19 @@ const Latest = () => {
                 '>
                     THE LATEST
                 </h2>
+
+                <div
+                className='
+                hidden
+                lg:inline-block
+                pt-[10px]
+                pb-[20px]
+                '>
+                    <NavigationButton
+                    title="Go to news page."
+                    url="https://playvalorant.com/en-us/news//"
+                    />
+                </div>
 
             </header>
 
@@ -105,6 +119,8 @@ const Latest = () => {
             
             <div
             className='
+            inline-block
+            lg:hidden
             pt-[10px]
             pb-[20px]
             '>
