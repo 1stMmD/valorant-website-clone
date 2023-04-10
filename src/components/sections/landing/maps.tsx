@@ -146,7 +146,7 @@ const Maps = () => {
                     lg:text-[16px]
                     sm:mr-[calc(20%_-_6px)]
                     ">
-                        More than guns and bullets, you'll choose an Agent armed with adaptive, swift, and lethal abilities that create opportunities to let your gunplay shine. No two Agents play alike, just as no two highlight reels will look the same.
+                        Each map is a playground to showcase your creative thinking. Purpose-built for team strategies, spectacular plays, and clutch moments. Make the play others will imitate for years to come.
                     </p>
                 </div>
 
