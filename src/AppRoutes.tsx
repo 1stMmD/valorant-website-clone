@@ -4,29 +4,15 @@ import {
     Routes
 } from "react-router-dom"
 import Navbar from './components/layouts/navbar/Navbar'
+import Introduction from './components/sections/landing/introduction'
+import Latest from './components/sections/landing/Latest'
+import Featured from './components/sections/landing/featured'
+import LearnGame from './components/sections/landing/learn-game'
+import Agents from './components/sections/landing/agents'
+import Maps from './components/sections/landing/maps'
+import Footer from './components/layouts/footer'
+
 function AppRoutes() {
-  const container = useRef<HTMLSpanElement | null>(null)
-  const text = useRef<HTMLParagraphElement | null>(null)
-
-  useEffect(() => {
-    window.onscroll = () => {
-      const offset = window.pageYOffset
-      const top = container.current?.getClientRects()[0].top ?? 0
-      const position = top - (window.innerHeight / 2)
-
-      text.current?.animate({
-        transform : `translateY(${(position * -1) * .3}px)`
-      },{
-        duration: 300,
-        easing: 'ease-in-out',
-        fill : "forwards"
-      })
-        
-      // if(text.current)
-      // text.current.style.transform = `translateY(${(position * -1) * .3}px)`
-
-    }
-  },[container , text])
   return (
     <>
         <Navbar/>
@@ -36,43 +22,20 @@ function AppRoutes() {
             <Route path="/agents" element={<span>Bye</span>}/>
         </Routes> */}
 
-        <div
-        className='
-        flex
-        items-center
-        justify-center
-        w-full
-        h-screen
-        bg-cyan-500
-        '>
+        <Introduction/>
 
-        </div>
+        <Latest/>
 
-        <div
-        className='
-        flex
-        items-center
-        justify-center
-        w-full
-        h-screen
-        bg-red-500
-        '>
-          <span ref={container}>
-            <p ref={text}>Hello</p>
-          </span>
-        </div>
+        <Featured/>
 
-        <div
-        className='
-        flex
-        items-center
-        justify-center
-        w-full
-        h-screen
-        bg-cyan-500
-        '>
+        <LearnGame/>
 
-        </div>
+        <Agents/>
+
+        <Maps/>
+
+        <Footer/>
+
     </>
   )
 }

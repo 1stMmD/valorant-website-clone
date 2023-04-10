@@ -28,7 +28,7 @@
 @layer components {
   .bg-primary
   {
-    @apply bg-slate-100 
+    @apply bg-blue-100 
   }
 
   .bg-secondary
@@ -47,3 +47,19 @@
   }
   
 }
+
+@layer utilities
+{
+  .text-stroke
+  {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #cedae9
+  }
+}
+
+body
+{
+  overflow-x: hidden;
+}
+
