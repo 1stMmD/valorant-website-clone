@@ -9,6 +9,7 @@ import Latest from './components/sections/landing/Latest'
 import Featured from './components/sections/landing/featured'
 import LearnGame from './components/sections/landing/learn-game'
 import Agents from './components/sections/landing/agents'
+import Maps from './components/sections/landing/maps'
 
 function AppRoutes() {
   return (
@@ -29,6 +30,8 @@ function AppRoutes() {
         <LearnGame/>
 
         <Agents/>
+
+        <Maps/>
 
         <div
         className='
