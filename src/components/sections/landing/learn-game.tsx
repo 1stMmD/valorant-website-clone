@@ -21,6 +21,7 @@ const LearnGame = () => {
         flex
         flex-col
         py-10
+        gap-8
         '>
 
             <div
@@ -65,7 +66,6 @@ const LearnGame = () => {
                 w-full
                 lg:max-w-[calc(25%_-_50px)]
                 lg:ml-[calc(16.6%_-_5px)]
-                lg:gap-y-12
                 lg:mb-[80px]
                 '>
 
@@ -92,6 +92,7 @@ const LearnGame = () => {
                     className='
                     flex
                     justify-center
+                    lg:mt-4
                     '>
                         <CallToAction
                         title='learn game'
@@ -107,7 +108,7 @@ const LearnGame = () => {
                     h-[8px]
                     bg-secondary
                     bottom-[30%]
-                    -left-[30%]
+                    -left-[40%]
                     ' />
 
                 </div>
@@ -124,7 +125,7 @@ const LearnGame = () => {
                     '>
                         <VideoCard
                         poster=''
-                        src=''
+                        src='https://assets.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltefd45731d8f9d9df/6217f2ea910a6c613c73168c/VALORANT_PLAY22_16x9_Target4_v005.mp4'
                         />
                     </div>
 
@@ -288,6 +289,16 @@ const LearnGame = () => {
         h-[12px]
         bg-secondary
         bottom-[10%]
+        ' />
+
+        {/* little square beside description 👇🏻*/}
+        <span
+        className='
+        absolute
+        w-[8px]
+        h-[8px]
+        bg-secondary
+        top-[30%]
         ' />
 
         {/* 00. 👇🏻*/}

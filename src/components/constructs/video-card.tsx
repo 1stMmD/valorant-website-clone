@@ -17,23 +17,26 @@ const VideoCard = ({
     relative
     w-full
     aspect-video
-    bg-red-200
     cursor-pointer
     '
     >
         <video 
+        muted
+        autoPlay
+        loop
+
         className='
         w-full
         object-cover
         object-center
 
         '
-        src=""
         poster={poster}
         >
             <source
             src={src}
             />
+            Your browser doesn't support videos
         </video>
 
         <button
