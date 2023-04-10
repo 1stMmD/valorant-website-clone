@@ -89,7 +89,7 @@ function Navbar() {
             <button
             className='
             uppercase
-            bg-red-500
+            bg-secondary
             px-3
             py-1
             rounded-lg

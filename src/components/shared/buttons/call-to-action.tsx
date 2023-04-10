@@ -1,12 +1,18 @@
 type props = {
   title : string,
-  light ?: boolean
+  light ?: boolean,
+  secondary ?: boolean
 }
 
 const CallToAction = ({
   title ,
-  light = true
+  light = true,
+  secondary = false
 } : props) => {
+
+  const bg = secondary ? "bg-primary" : "bg-secondary";
+  const text = secondary ? "text-primary" : "text-secondary";
+  
   return (
     <div
     className="
@@ -20,20 +26,22 @@ const CallToAction = ({
     relative
     ">
         <button
-        className="
+        className={`
+        transition-colors
         group
         overflow-hidden
         relative
         text-[1.1rem]
         lg:text-[1rem]
-        text-secondary
+        ${text}
+        ${secondary ? "hover:text-secondary" : ""}
         text-center
         w-full
         font-bold
         font-DINNext
         py-4
         uppercase
-        ">
+        `}>
             <span
             className="
             relative
@@ -43,27 +51,27 @@ const CallToAction = ({
             </span>
 
             <span
-            className="
+            className={`
             absolute
             flex
             w-[100%]
             h-[calc(100%_-_4px)]
             bottom-0
             left-0
-            bg-secondary
-            "
+            ${bg}
+            `}
             />
 
             <span
-            className="
+            className={`
             absolute
             flex
             w-[calc(100%_-_4px)]
             h-[4px]
             top-0
             right-0
-            bg-secondary
-            "
+            ${bg}
+            `}
             />
 
             <span
