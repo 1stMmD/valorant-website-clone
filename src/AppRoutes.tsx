@@ -10,6 +10,7 @@ import Featured from './components/sections/landing/featured'
 import LearnGame from './components/sections/landing/learn-game'
 import Agents from './components/sections/landing/agents'
 import Maps from './components/sections/landing/maps'
+import Footer from './components/layouts/footer'
 
 function AppRoutes() {
   return (
@@ -33,17 +34,8 @@ function AppRoutes() {
 
         <Maps/>
 
-        <div
-        className='
-        flex
-        items-center
-        justify-center
-        w-full
-        h-screen
-        bg-cyan-500
-        '>
+        <Footer/>
 
-        </div>
     </>
   )
 }
