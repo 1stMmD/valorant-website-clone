@@ -8,12 +8,19 @@ const RiotSearchMobile = () => {
     const [value , setValue] = useState("");
 
     return (
-    <div
+    <form
+    onSubmit={(e) => {
+        e.preventDefault()
+        const a = document.createElement("a")
+        a.href = "https://www.riotgames.com/en/search?q=" + value
+        a.click()
+    }}
     className='
     flex
     items-center
     rounded-lg
     bg-neutral-700
+    font-DINNext
     '>
         <IconButton
         className="
@@ -33,6 +40,7 @@ const RiotSearchMobile = () => {
         mr-3
         outline-none
         text-white
+        tracking-[1px]
         w-full
         '/>
 
@@ -46,7 +54,7 @@ const RiotSearchMobile = () => {
         }}>
             <VscChromeClose/>
         </IconButton>
-    </div>
+    </form>
     )
 }
 

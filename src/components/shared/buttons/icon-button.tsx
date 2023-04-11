@@ -13,6 +13,7 @@ const IconButton = ({
 } : props) => {
   return (
     <button
+    type="button"
     onClick={onClick}
     className={`
     text-white

@@ -6,14 +6,21 @@ import { VscChromeClose } from "react-icons/vsc"
 
 const RiotSearch = () => {
     const [show , setShow] = useState(false);
-
+    const [value , setValue] = useState<string>("")
     return (
-    <div
+    <form
+    onSubmit={(e) => {
+        e.preventDefault()
+        const a = document.createElement("a")
+        a.href = "https://www.riotgames.com/en/search?q=" + value
+        a.click()
+    }}
     className='
     flex
     items-center
     rounded-lg
     bg-neutral-800
+    font-DINNext
     '>
         <IconButton
         onClick={() => {
@@ -32,22 +39,28 @@ const RiotSearch = () => {
         overflow-hidden
         `}>
             <input
+            value={value}
+            onChange={(e) => {
+                setValue(e.target.value)
+            }}
             className='
             bg-transparent
             mr-3
             outline-none
             text-white
+            tracking-[1px]
             w-[120px]
             '/>
 
             <IconButton
             onClick={() => {
                 setShow(false)
+                setValue("")
             }}>
                 <VscChromeClose/>
             </IconButton>
         </span>
-    </div>
+    </form>
     )
 }
 
