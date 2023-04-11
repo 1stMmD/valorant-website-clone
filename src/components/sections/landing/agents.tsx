@@ -1,6 +1,8 @@
 import { LegacyRef } from "react"
 import { useParallax } from "../../../hooks/useParallax"
 import CallToAction from "../../shared/buttons/call-to-action"
+import H2 from "../../primitives/text/header-2"
+import SlideUpWhenInView from "../../animated/slide-up-when-in-view"
 
 const Agents = () => {
 
@@ -37,18 +39,17 @@ const Agents = () => {
             gap-6
             pt-[30px]
             ">
-                <h2
-                className='
-                text-[55px]
-                md:text-[100px]
-                lg:text-[120px]
-                leading-none
-                tracking-[1px]
+                <div
+                className="
                 text-secondary
-                font-Tungsten
-                '>
-                    YOUR AGENTS
-                </h2>
+                ">
+                    <SlideUpWhenInView once>
+                        <H2>
+                            YOUR AGENTS
+                        </H2>
+                    </SlideUpWhenInView>
+                    
+                </div>
 
                 <h5
                 className="

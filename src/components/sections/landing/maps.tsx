@@ -2,6 +2,8 @@ import { LegacyRef } from "react"
 import { useParallax } from "../../../hooks/useParallax"
 import CallToAction from "../../shared/buttons/call-to-action"
 import { useXParallax } from "../../../hooks/useXParallax"
+import SlideUpWhenInView from "../../animated/slide-up-when-in-view"
+import H2 from "../../primitives/text/header-2"
 
 const Maps = () => {
 
@@ -110,18 +112,16 @@ const Maps = () => {
             pt-[30px]
             lg:pl-[9%]
             ">
-                <h2
+                <div
                 className='
-                text-[55px]
-                md:text-[100px]
-                lg:text-[120px]
-                leading-none
-                tracking-[1px]
                 text-primary
-                font-Tungsten
                 '>
-                    YOUR MAPS
-                </h2>
+                    <SlideUpWhenInView once>
+                        <H2>
+                            YOUR MAPS
+                        </H2>
+                    </SlideUpWhenInView>
+                </div>
 
                 <div
                 className="
