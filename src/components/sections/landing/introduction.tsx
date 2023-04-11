@@ -93,6 +93,7 @@ const Introduction = () => {
             title="play free"
             />
 
+            {/* vertical line on the left*/}
             <span
             className='
             absolute
@@ -106,6 +107,7 @@ const Introduction = () => {
             '
             />
 
+            {/* vertical line in the middle(kind of)*/}
             <span
             className='
             hidden
@@ -120,6 +122,7 @@ const Introduction = () => {
             '
             />
 
+            {/* vertical line on the right*/}
             <span
             className='
             hidden
@@ -134,31 +137,33 @@ const Introduction = () => {
             '
             />
 
+            {/* blue square shape beside left vertical line*/}
             <span
             className='
             hidden
             lg:inline
             absolute
-            w-[20px]
-            h-[20px]
+            w-[16px]
+            h-[16px]
             lg:left-[7.5vw]
             top-[70px]
             bg-secondary
             '
             />
 
+            {/* blue triangle shape beside blue square */}
             <span
             className='
             hidden
             lg:inline
             absolute
-            border-l-[10px]
+            border-l-[8px]
             border-l-blue-500
-            border-b-[10px]
+            border-b-[8px]
             border-b-transparent
-            border-t-[10px]
+            border-t-[8px]
             border-t-transparent
-            lg:left-[calc(7.5vw_+_20px)]
+            lg:left-[calc(7.5vw_+_16px)]
             top-[70px]
             '
             />

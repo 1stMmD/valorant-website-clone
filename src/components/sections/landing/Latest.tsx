@@ -26,9 +26,9 @@ const Latest = () => {
         after:left-0
         after:border-b-[5vw]
         after:border-r-[5vw]
-        lg:after:border-b-[4rem]
-        lg:after:border-r-[4rem]
-        lg:after:-top-[4rem]
+        lg:after:border-b-[50px]
+        lg:after:border-r-[50px]
+        lg:after:-top-[50px]
         after:border-r-transparent
         after:border-b-blue-100
         '>
