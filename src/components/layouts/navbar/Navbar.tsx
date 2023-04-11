@@ -89,8 +89,10 @@ function Navbar() {
             <button
             className='
             uppercase
-            bg-secondary
-            px-3
+            bg-gradient-to-br
+            from-blue-500
+            to-cyan-400
+            px-4
             py-1
             rounded-lg
             font-DINNext

@@ -27,19 +27,19 @@ export const sections_array = [
             new option(
                 "Agents",
                 false,
-                "agents",
+                "https://playvalorant.com/en-us/agents/",
                 null
             ),
             new option(
                 "Weapons",
                 false,
-                "weapons",
+                "https://playvalorant.com/en-us/maps/",
                 null
             ),
             new option(
                 "Maps",
                 false,
-                "maps",
+                "https://playvalorant.com/en-us/arsenal/",
                 null
             )
         ]
@@ -47,19 +47,19 @@ export const sections_array = [
     new option(
         "Media",
         false,
-        "media",
+        "https://playvalorant.com/en-us/media",
         null
     ),
     new option(
         "News",
         false,
-        "news",
+        "https://playvalorant.com/en-us/news/",
         null
     ),
     new option(
         "Leaderboards",
         false,
-        "leaderboards",
+        "https://playvalorant.com/en-us/leaderboards/",
         null
     ),
     new option(
@@ -70,19 +70,19 @@ export const sections_array = [
             new option(
                 "Spec",
                 true,
-                "link",
+                "https://playvalorant.com/en-us/specs/",
                 null
             ),
             new option(
                 "Support",
                 true,
-                "link",
+                "https://support-valorant.riotgames.com/hc/en-us/",
                 null
             ),
             new option(
                 "Community code",
                 true,
-                "link",
+                "https://playvalorant.com/en-us/news/announcements/valorant-community-code/",
                 null
             ),
         ]
@@ -95,31 +95,31 @@ export const sections_array = [
             new option(
                 "Twitter",
                 true,
-                "link",
+                "https://twitter.com/playvalorant",
                 null
             ),
             new option(
                 "Youtube",
                 true,
-                "link",
+                "https://www.youtube.com/PlayValorant",
                 null
             ),
             new option(
                 "Instagram",
                 true,
-                "link",
+                "https://www.instagram.com/playvalorantofficial/",
                 null
             ),
             new option(
                 "Facebook",
                 true,
-                "link",
+                "https://www.facebook.com/playvalorant/",
                 null
             ),
             new option(
                 "Discord",
                 true,
-                "link",
+                "https://discord.gg/valorant",
                 null
             ),
         ]
@@ -127,13 +127,13 @@ export const sections_array = [
     new option(
         "Esports",
         true,
-        "",
+        "https://playvalorant.com/en-us/",
         null,
     ),
     new option(
         "PBE Signup",
         false,
-        "/pbe",
+        "https://playvalorant.com/en-us/pbe/",
         null
     )
 ]

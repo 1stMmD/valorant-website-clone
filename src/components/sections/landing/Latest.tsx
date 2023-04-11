@@ -5,6 +5,8 @@ import "swiper/swiper.css"
 import { useIsLG } from '../../../hooks/useIsLG';
 import NavigationButton from '../../shared/buttons/navigation-button';
 import { useParallax } from '../../../hooks/useParallax';
+import SlideUpWhenInView from '../../animated/slide-up-when-in-view';
+import H2 from '../../primitives/text/header-2';
 
 const Latest = () => {
     const isLG = useIsLG()
@@ -26,9 +28,9 @@ const Latest = () => {
         after:left-0
         after:border-b-[5vw]
         after:border-r-[5vw]
-        lg:after:border-b-[4rem]
-        lg:after:border-r-[4rem]
-        lg:after:-top-[4rem]
+        lg:after:border-b-[50px]
+        lg:after:border-r-[50px]
+        lg:after:-top-[50px]
         after:border-r-transparent
         after:border-b-blue-100
         '>
@@ -41,19 +43,20 @@ const Latest = () => {
             justify-between
             items-center
             '>
-                <h2
+                <div
                 className='
-                text-[55px]
-                md:text-[100px]
-                lg:text-[120px]
                 font-Tungsten
                 text-blue-500
                 translate-y-[.75rem]
                 md:translate-y-[1.5rem]
-                leading-none
                 '>
-                    THE LATEST
-                </h2>
+                    <SlideUpWhenInView once>
+                        <H2>
+                            THE LATEST
+                        </H2>
+                    </SlideUpWhenInView>
+                   
+                </div>
 
                 <div
                 className='

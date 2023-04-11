@@ -33,8 +33,8 @@ const More = ({
         text-[.87rem]
         tracking-[1px]
         font-medium
-        px-3
-        py-1
+        px-4
+        py-2
         hover:bg-neutral-800
         rounded-lg
         '>
@@ -69,7 +69,8 @@ export default More
 type SectionType = {
   name: string,
   external : boolean,
-  options : SectionType[] | null
+  options : SectionType[] | null,
+  url : string
 }
 
 type ParentProps = {
@@ -129,11 +130,13 @@ export const Parent = ({
 export const Child = ({
   section
 } : {section : SectionType}) => {
-  const { name , external } = section
+  const { name , external , url} = section
   return(
-    <OptionButton
-    external={external}
-    name={name}
-    />
+    <a href={url}>
+      <OptionButton
+      external={external}
+      name={name}
+      />
+    </a>
   )
 }

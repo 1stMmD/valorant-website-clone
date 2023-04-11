@@ -1,6 +1,8 @@
 import { LegacyRef } from "react"
 import { useParallax } from "../../../hooks/useParallax"
 import CallToAction from "../../shared/buttons/call-to-action"
+import H2 from "../../primitives/text/header-2"
+import SlideUpWhenInView from "../../animated/slide-up-when-in-view"
 
 const Agents = () => {
 
@@ -28,6 +30,7 @@ const Agents = () => {
 
             <div
             className="
+            z-[2]
             flex-shrink-0
             lg:w-[40%]
             relative
@@ -36,18 +39,17 @@ const Agents = () => {
             gap-6
             pt-[30px]
             ">
-                <h2
-                className='
-                text-[55px]
-                md:text-[100px]
-                lg:text-[120px]
-                leading-none
-                tracking-[1px]
+                <div
+                className="
                 text-secondary
-                font-Tungsten
-                '>
-                    YOUR AGENTS
-                </h2>
+                ">
+                    <SlideUpWhenInView once>
+                        <H2>
+                            YOUR AGENTS
+                        </H2>
+                    </SlideUpWhenInView>
+                    
+                </div>
 
                 <h5
                 className="
@@ -62,6 +64,7 @@ const Agents = () => {
                 className="
                 text-secondary
                 text-[18px]
+                lg:text-[16px]
                 sm:mr-[calc(20%_-_6px)]
                 ">
                     More than guns and bullets, you'll choose an Agent armed with adaptive, swift, and lethal abilities that create opportunities to let your gunplay shine. No two Agents play alike, just as no two highlight reels will look the same.

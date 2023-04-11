@@ -1,5 +1,7 @@
 import React from 'react'
 import CallToAction from '../../shared/buttons/call-to-action'
+import SlideUpWhenInView from '../../animated/slide-up-when-in-view'
+import H2 from '../../primitives/text/header-2'
 
 const Featured = () => {
   return (
@@ -57,20 +59,19 @@ const Featured = () => {
                     EPISODE_06 // ACT II / YR 3
                 </h4>
 
-                <h3
+                <div
                 className='
                 my-10
                 md:my-[45px]
-                text-[55px]
-                md:text-[100px]
-                lg:text-[120px]
-                leading-none
-                tracking-[1px]
                 text-secondary
                 font-Tungsten
                 '>
-                    REVELATION
-                </h3>
+                    <SlideUpWhenInView once>
+                        <H2>
+                            REVELATION
+                        </H2>
+                    </SlideUpWhenInView>
+                </div>
 
                 <a>
                     <CallToAction

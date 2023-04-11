@@ -1,6 +1,8 @@
 import React from 'react'
 import CallToAction from '../../shared/buttons/call-to-action'
 import VideoCard from '../../constructs/video-card'
+import SlideUpWhenInView from '../../animated/slide-up-when-in-view'
+import H2 from '../../primitives/text/header-2'
 
 const LearnGame = () => {
   return (
@@ -31,18 +33,16 @@ const LearnGame = () => {
             lg:mb-8
             lg:p-3
             '>
-                <h3
+                <div
                 className='
-                text-[55px]
-                md:text-[100px]
-                lg:text-[120px]
-                leading-none
-                tracking-[1px]
                 text-primary
-                font-Tungsten
                 '>
-                    WE ARE VALORANT
-                </h3>
+                    <SlideUpWhenInView once>
+                        <H2>
+                         WE ARE VALORANT
+                        </H2>
+                    </SlideUpWhenInView>
+                </div>
             </div>
 
             <div
