@@ -28,6 +28,7 @@ const Agents = () => {
 
             <div
             className="
+            z-[2]
             flex-shrink-0
             lg:w-[40%]
             relative
@@ -62,6 +63,7 @@ const Agents = () => {
                 className="
                 text-secondary
                 text-[18px]
+                lg:text-[16px]
                 sm:mr-[calc(20%_-_6px)]
                 ">
                     More than guns and bullets, you'll choose an Agent armed with adaptive, swift, and lethal abilities that create opportunities to let your gunplay shine. No two Agents play alike, just as no two highlight reels will look the same.
