@@ -89,6 +89,7 @@ const LearnGame = () => {
                     </p>
 
                     <a
+                    href="https://playvalorant.com/en-us/news/announcements/beginners-guide/"
                     className='
                     flex
                     justify-center

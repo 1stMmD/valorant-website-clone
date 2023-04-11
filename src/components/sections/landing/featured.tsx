@@ -73,7 +73,8 @@ const Featured = () => {
                     </SlideUpWhenInView>
                 </div>
 
-                <a>
+                <a
+                href="https://playvalorant.com/en-us/news/game-updates/what-s-new-in-episode-6-act-ii/">
                     <CallToAction
                     title="act ii overview"
                     />

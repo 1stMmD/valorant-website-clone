@@ -71,6 +71,7 @@ const Agents = () => {
                 </p>
 
                 <a
+                href="https://playvalorant.com/en-us/agents/"
                 className="
                 mt-[70vw]
                 mb-[8vw]

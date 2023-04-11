@@ -151,6 +151,7 @@ const Maps = () => {
                 </div>
 
                 <a
+                href="https://playvalorant.com/en-us/maps/"
                 className="
                 mt-[35vw]
                 mb-[50px]
