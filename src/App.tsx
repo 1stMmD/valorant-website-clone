@@ -19,8 +19,8 @@ function App() {
     '>
       <Router>
         <Routes>
-          <Route path="/" element={<Navigate to={"/en-us"} />}/>
-          <Route path='/:language/*' element={<AppRoutes/>}/>
+          <Route path='/en-us/*' element={<AppRoutes/>}/>
+          <Route path="*" element={<Navigate to={"/en-us"} />}/>
         </Routes>
       </Router>
     </main>
