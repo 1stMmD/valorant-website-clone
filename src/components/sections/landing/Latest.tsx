@@ -32,7 +32,7 @@ const Latest = () => {
         lg:after:border-r-[50px]
         lg:after:-top-[50px]
         after:border-r-transparent
-        after:border-b-blue-100
+        after:border-b-blue-50
         '>
 
             <header
