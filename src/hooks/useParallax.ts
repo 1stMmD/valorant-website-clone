@@ -8,7 +8,9 @@ export const useParallax = (direction : "up" | "bottom" = "bottom" , speed : num
     const element = useRef<HTMLDivElement | HTMLImageElement | null>(null)
   
     useEffect(() => {
-      window.addEventListener( "scroll" , () => {
+      if(!container.current || !element.current) return
+      
+      const handleScroll = () => {
         const offset = window.pageYOffset
         const top = container.current?.getClientRects()[0].top ?? 0
         const position = top - (window.innerHeight / 2)
@@ -20,7 +22,13 @@ export const useParallax = (direction : "up" | "bottom" = "bottom" , speed : num
           easing: 'ease-in-out',
           fill : "forwards"
         })  
-      })
+      }
+     
+      window.addEventListener( "scroll" , handleScroll)
+
+      return () => {
+        window.removeEventListener("scroll" , handleScroll)
+      }
     },[container , element])
 
     return{
