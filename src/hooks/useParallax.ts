@@ -1,18 +1,21 @@
 import { useEffect , useRef } from "react"
 
+
 export const useParallax = (direction : "up" | "bottom" = "bottom" , speed : number = .075) => {
-
-    const dir = direction === "bottom" ? -1 : 1
-
+  
+  
+  const dir = direction === "bottom" ? -1 : 1
+  
     const container = useRef<HTMLDivElement | null>(null)
     const element = useRef<HTMLDivElement | HTMLImageElement | null>(null)
-  
+    
     useEffect(() => {
+      const app = document.getElementById("app")
+      
       if(!container.current || !element.current) return
       
-      const handleScroll = () => {
-        const offset = window.pageYOffset
-        const top = container.current?.getClientRects()[0].top ?? 0
+      const handleScroll = () => {   
+        const top = container.current?.getBoundingClientRect()?.top ?? 0
         const position = top - (window.innerHeight / 2)
   
         element.current?.animate({
@@ -24,10 +27,10 @@ export const useParallax = (direction : "up" | "bottom" = "bottom" , speed : num
         })  
       }
      
-      window.addEventListener( "scroll" , handleScroll)
+      app?.addEventListener( "scroll" , handleScroll)
 
       return () => {
-        window.removeEventListener("scroll" , handleScroll)
+        app?.removeEventListener("scroll" , handleScroll)
       }
     },[container , element])
 

@@ -1,8 +1,3 @@
-import React, { useEffect, useRef } from 'react'
-import {
-    Route,
-    Routes
-} from "react-router-dom"
 import Navbar from './components/layouts/navbar/Navbar'
 import Introduction from './components/sections/landing/introduction'
 import Latest from './components/sections/landing/Latest'
@@ -15,12 +10,8 @@ import Footer from './components/layouts/footer'
 function AppRoutes() {
   return (
     <>
+
         <Navbar/>
-        
-        {/* <Routes>
-            <Route path="/" element={<span>Hello</span>}/>
-            <Route path="/agents" element={<span>Bye</span>}/>
-        </Routes> */}
 
         <Introduction/>
 

@@ -9,9 +9,13 @@ import AppRoutes from './AppRoutes'
 
 function App() {
   return (
-    <div
+    <main
+    ref={(node : HTMLElement | null) => {node?.focus()} }
+    tabIndex={0}
+    id="app"
     className='
     overflow-x-hidden
+    h-screen
     '>
       <Router>
         <Routes>
@@ -19,7 +23,7 @@ function App() {
           <Route path='/:language/*' element={<AppRoutes/>}/>
         </Routes>
       </Router>
-    </div>
+    </main>
   )
 }
 
