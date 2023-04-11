@@ -9,12 +9,17 @@ import AppRoutes from './AppRoutes'
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Navigate to={"/en-us"} />}/>
-        <Route path='/:language/*' element={<AppRoutes/>}/>
-      </Routes>
-    </Router>
+    <div
+    className='
+    overflow-x-hidden
+    '>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Navigate to={"/en-us"} />}/>
+          <Route path='/:language/*' element={<AppRoutes/>}/>
+        </Routes>
+      </Router>
+    </div>
   )
 }
 
