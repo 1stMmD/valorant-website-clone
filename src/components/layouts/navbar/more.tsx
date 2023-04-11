@@ -97,10 +97,11 @@ export const Parent = ({
       Icon={
         <span
         className={`
+        transition-transform
         text-secondary
         text-[1.5rem]
         lg:text-[1rem]
-        ${show ? "" : "rotate-180"}
+        ${show ? "rotate-180" : ""}
         `}>
           <TiArrowSortedDown/>
         </span>

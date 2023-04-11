@@ -211,7 +211,7 @@ const Maps = () => {
                     h-[70%]
                     w-[10vw]
                     bg-gradient-to-r
-                    from-blue-100
+                    from-blue-50
                     to-transparent
                     "
                     />

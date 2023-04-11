@@ -80,6 +80,7 @@ const LearnGame = () => {
 
                     <p
                     className='
+                    z-[2]
                     text-primary
                     text-[18px]
                     lg:text-[16px]
@@ -104,6 +105,7 @@ const LearnGame = () => {
                     {/* little square beside description 👇🏻*/}
                     <span
                     className='
+                    z-[1]
                     absolute
                     w-[8px]
                     h-[8px]

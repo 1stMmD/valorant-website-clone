@@ -192,7 +192,7 @@ function NavbarSections() {
                     if(timeout.current) clearTimeout(timeout.current)
                     const parent = (e.currentTarget.parentNode as Element);
                     const {x} = parent?.getBoundingClientRect()
-                    console.log(more)
+
                     updateOptions({
                         type : "Update",
                         payload : {
