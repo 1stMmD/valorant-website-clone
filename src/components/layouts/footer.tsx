@@ -30,6 +30,7 @@ const Footer = () => {
                     href={item.url}
                     key={idx}
                     className='
+                    text-center
                     duration-500
                     transition-colors
                     bg-neutral-800
