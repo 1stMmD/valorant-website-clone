@@ -39,24 +39,6 @@ const actions : {
 }
 
 function NavbarSections() {
-
-    const [isLG, setIsLG] = useState<boolean>(false)
-
-    useEffect(() => {
-        const mediaQuery = window.matchMedia("(min-width: 1024px)");
-        setIsLG(mediaQuery.matches);
-
-        const handler = (e) => {
-            setIsLG(e.matches)
-        };
-
-        mediaQuery.addListener(handler);
-
-        return () => {
-            mediaQuery.removeListener(handler);
-        };
-    }, []);
-
     const [sections , setSections] = useState<OptionType[] | []>(sections_array)
     const [more , setMore] = useState<OptionType[] | []>([])
     const [options, updateOptions] = useReducer((prev : OptionsState , action : OptionsAction) => {
@@ -128,7 +110,7 @@ function NavbarSections() {
             overflow-hidden
             gap-1
             '>
-                {sections?.map(({name , options} , idx) => {
+                {sections?.map(({name , options , url} , idx) => {
                     return(
                         <span
                         className='
@@ -141,7 +123,8 @@ function NavbarSections() {
                         '
                         key={idx}>
                             
-                            <button
+                            <a
+                            href={url ? url : ""}
                             onMouseEnter={(e) => {
                                 if(!options) return
 
@@ -179,7 +162,7 @@ function NavbarSections() {
                             rounded-lg
                             '>
                                 {name}
-                            </button>
+                            </a>
                             
                             {
                             !options ? <span
